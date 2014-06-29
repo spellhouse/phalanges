@@ -93,7 +93,6 @@
     {:default scroll-lock}
     {:default semicolon :shift colon}
     {:default seven :shift ampersand}
-    {:default shift}
     {:default single-quote :shift double-quote}
     {:default six :shift caret}
     {:default slash :shift pipe}
