@@ -6,8 +6,7 @@
 
   :dependencies
   [[org.clojure/clojure "1.5.1"]
-   [org.clojure/clojurescript "0.0-2227" :scope "provided"]
-   [org.clojure/tools.reader "0.8.1"]]
+   [org.clojure/clojurescript "0.0-2227" :scope "provided"]]
 
   :profiles
   {:dev {:source-paths ["src" "dev"]
