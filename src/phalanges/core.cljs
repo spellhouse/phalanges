@@ -1,6 +1,7 @@
 (ns phalanges.core
   (:require
-   [clojure.string :as string])
+   [clojure.string :as string]
+   [goog.object])
   (:require-macros
    [phalanges.core :refer [define-key-code-predicates]])
   (:import goog.events.KeyCodes))
@@ -16,7 +17,7 @@
           (assoc m v k)
           m)))
     {}
-    (array-seq (js/Object.keys goog.events.KeyCodes))))
+    (array-seq (goog.object/getKeys goog.events.KeyCodes))))
 
 (def keyword->keycode
   (into {} (map (juxt val key) keycode->keyword)))
