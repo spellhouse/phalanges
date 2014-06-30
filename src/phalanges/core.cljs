@@ -37,7 +37,7 @@
   "Return the repeat property of js/KeyboardEvent. True if the key is 
   being held down."
   [e]
-  (.-repeat e))
+  (boolean (.-repeat e)))
 
 (defn control-key?
   "Return the ctrlKey property of a js/KeyboardEvent. True if the 
