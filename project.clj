@@ -1,6 +1,6 @@
 (defproject spellhouse/phalanges "0.1.1-SNAPSHOT"
-  :description "FIXME: write description"
-  :url "http://example.com/FIXME"
+  :description "ClojureScript library providing utilities for working with JavaScript KeyboardEvents."
+  :url "https://github.com/spellhouse/phalanges"
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
