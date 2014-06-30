@@ -71,7 +71,7 @@
   
 
   Ex.
-    (modifiers e)
+    (modifier-set e)
     ;; => #{:control :shift}
   "
   [e]
