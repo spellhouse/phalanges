@@ -19,7 +19,7 @@ For the current `SNAPSHOT` use
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2014 Christopher Joel Holdbrooks
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
