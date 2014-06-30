@@ -7,13 +7,13 @@ working with JavaScript `KeyboardEvent`s.
 
 Add Phalanges as to your `:dependencies` in your `project.clj` file.
 
-```
+```clj
 [spellhouse/phalanges "0.1.0"]
 ```
 
 For the current `SNAPSHOT` use 
 
-```
+```clj
 [spellhouse/phalanges "0.1.1-SNAPSHOT"]
 ```
 
