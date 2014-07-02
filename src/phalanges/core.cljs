@@ -12,24 +12,18 @@
 ;; Utilities
 
 (defn prune
-  "Recursively dissoc empty values on key-path.
-
-  Ex.
-    (prune {:a {:b {:c {}}
-                :d :foo}}
-           [:a :b :c])
-    ;; => {:a {:d :foo}}
-  "
-  [m key-path]
-  (if (seq key-path)
-    (let [key (last key-path)
-          edit-path (butlast key-path)]
-      (if (and (contains? (get-in m edit-path) key)
-               (empty? (get-in m key-path)))
-        (if edit-path
-          (recur (update-in m edit-path dissoc key)
-                 edit-path)
-          (dissoc m key))
+  "Dissociates entries in a nested associative structure when,
+   for each value of a key in the ks path, (pred val) is true.
+   Applies the test/dissociation from the bottom-up."
+  [m [k & ks] pred]
+  (if (contains? m k)
+    (if ks
+      (let [v (prune (get m k) ks pred)]
+        (if (pred v)
+          (dissoc m k)
+          (assoc m k v)))
+      (if (pred (get m k))
+        (dissoc m k)
         m))
     m))
 
@@ -195,4 +189,4 @@
            (let [edit-path (butlast key-sets)
                  key (last key-sets)]
              (-> (update-in store edit-path dissoc key)
-                 (prune edit-path))))))
+                 (prune edit-path empty?))))))
