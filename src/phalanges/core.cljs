@@ -156,8 +156,8 @@
       (let [register (get-register! el)
             fn-store (get-fn-store! el)
             listener (fn [e]
-                       (let [key-set (keyboard/key-set e)]
-                         (swap! register conj key-set)
+                       (let [ks (key-set e)]
+                         (swap! register conj ks)
                          (let [x (get-in @fn-store @register)]
                            (if (nil? x)
                              (reset! register [key-set])
