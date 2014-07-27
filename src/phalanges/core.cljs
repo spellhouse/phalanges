@@ -4,7 +4,7 @@
    [clojure.string :as string]
    [clojure.set :as set]
    [goog.object]
-   [goog.evens :as events])
+   [goog.events :as events])
   (:require-macros
    [phalanges.core :refer [define-key-code-predicates]])
   (:import goog.events.KeyCodes))
