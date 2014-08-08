@@ -8,13 +8,13 @@ working with JavaScript `KeyboardEvent`s.
 Add Phalanges as to your `:dependencies` in your `project.clj` file.
 
 ```clj
-[spellhouse/phalanges "0.1.2"]
+[spellhouse/phalanges "0.1.3"]
 ```
 
 For the current `SNAPSHOT` use 
 
 ```clj
-[spellhouse/phalanges "0.1.3-SNAPSHOT"]
+[spellhouse/phalanges "0.1.4-SNAPSHOT"]
 ```
 
 ## License
