@@ -107,6 +107,29 @@
 (define-key-code-predicates)
 
 ;; ---------------------------------------------------------------------
+;; KeyCodes wrappers
+
+(def
+  ^{:arglists '([e])
+    :doc "Returns true if the event contains a text modifying key."}
+  text-modifying-key?
+  KeyCodes.isTextModifyingKeyEvent)
+
+(def
+  ^{:arglists '([key-code & [held-key-code shift-key? control-key? alt-key?]])
+    :doc "Returns true if the key fires a keypress event in the current
+ browser."}
+  fires-key-press?
+  KeyCodes.firesKeyPressEvent)
+
+(def
+  ^{:arglists '([key-code])
+    :doc "Returns true if the key produces a character.
+This does not cover characters on non-US keyboards (Russian, Hebrew, etc.)."}
+  character-key?
+  KeyCodes.isCharacterKey)
+
+;; ---------------------------------------------------------------------
 ;; Keyset
 
 (defn modifier-set
