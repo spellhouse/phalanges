@@ -4,7 +4,6 @@
 
 (def key-data
   '[{:default a :shift A}
-    {:default alt}
     {:default b :shift B}
     {:default backslash :shift pipe}
     {:default backspace}
