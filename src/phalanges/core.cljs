@@ -159,6 +159,13 @@ This does not cover characters on non-US keyboards (Russian, Hebrew, etc.)."}
   [e]
   (conj (modifier-set e) (keycode->keyword (key-code e))))
 
+(defn key-char
+  "Given a js/KeyboardEvent return the keyCode property converted to a
+  string."
+  [e]
+  (char (key-code e)))
+
+
 ;; ---------------------------------------------------------------------
 ;; Key sequence listener
 
