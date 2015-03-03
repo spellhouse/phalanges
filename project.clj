@@ -1,4 +1,4 @@
-(defproject spellhouse/phalanges "0.1.5"
+(defproject spellhouse/phalanges "0.1.6-SNAPSHOT"
   :description "ClojureScript library providing utilities for working with JavaScript KeyboardEvents."
   :url "https://github.com/spellhouse/phalanges"
   :license {:name "Eclipse Public License"
