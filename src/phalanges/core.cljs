@@ -31,24 +31,138 @@
 ;; ---------------------------------------------------------------------
 ;; Keyword/Keycode conversion
 
+;; Produced with following code:
+;; (reduce
+;;     (fn [m k]
+;;       (let [v (aget goog.events.KeyCodes k)
+;;             k (-> (string/lower-case k)
+;;                   (string/replace #"_" "-")
+;;                   (keyword))]
+;;         (if-not (fn? v)
+;;           (assoc m k v)
+;;           m)))
+;;     {}
+;;     (array-seq (goog.object/getKeys goog.events.KeyCodes)))
+
 (def
-  ^{:doc "ClojureScript friendly version of goog.events.KeyCodes.
-  
-  Produced with following code:
-  (reduce
-      (fn [m k]
-        (let [v (aget goog.events.KeyCodes k)
-              k (-> (string/lower-case k)
-                    (string/replace #"_" "-")
-                    (keyword))]
-          (if-not (fn? v)
-            (assoc m k v)
-            m)))
-      {}
-      (array-seq (goog.object/getKeys goog.events.KeyCodes)))
-  "}
+  ^{:doc "ClojureScript friendly version of goog.events.KeyCodes."}
   keyword->keycode
-  {:y 89, :zero 48, :shift 16, :one 49, :q 81, :num-eight 104, :ff-semicolon 59, :slash 191, :down 40, :question-mark 63, :win-key 224, :r 82, :space 32, :num-division 111, :home 36, :insert 45, :num-zero 96, :v 86, :mac-enter 3, :f8 119, :o 79, :meta 91, :eight 56, :f1 112, :win-ime 229, :win-key-ff-linux 0, :mac-wk-cmd-left 91, :f10 121, :last-media-key 183, :mac-ff-meta 224, :num-six 102, :num-period 110, :alt 18, :first-media-key 166, :scroll-lock 145, :esc 27, :phantom 255, :n 78, :w 87, :m 77, :comma 188, :num-nine 105, :page-up 33, :num-seven 103, :numlock 144, :win-key-right 92, :f5 116, :caps-lock 20, :open-square-bracket 219, :dash 189, :num-multiply 106, :tilde 192, :delete 46, :three 51, :mac-wk-cmd-right 93, :five 53, :equals 187, :four 52, :e 69, :ctrl 17, :s 83, :l 76, :up 38, :k 75, :num-center 12, :enter 13, :z 90, :g 71, :num-two 98, :f11 122, :c 67, :single-quote 222, :num-plus 107, :num-five 101, :j 74, :f3 114, :h 72, :f2 113, :apostrophe 192, :nine 57, :num-three 99, :close-square-bracket 221, :two 50, :context-menu 93, :semicolon 186, :f12 123, :seven 55, :b 66, :ff-equals 61, :right 39, :d 68, :f 70, :pause 19, :backspace 8, :num-four 100, :f7 118, :t 84, :x 88, :period 190, :print-screen 44, :f9 120, :page-down 34, :end 35, :ff-dash 173, :tab 9, :f6 117, :f4 115, :p 80, :six 54, :i 73, :num-one 97, :num-minus 109, :a 65, :backslash 220, :left 37, :u 85}
+  {:a 65
+   :alt 18
+   :apostrophe 192
+   :b 66
+   :backslash 220
+   :backspace 8
+   :c 67
+   :caps-lock 20
+   :close-square-bracket 221
+   :comma 188
+   :context-menu 93
+   :ctrl 17
+   :d 68
+   :dash 189
+   :delete 46
+   :down 40
+   :e 69
+   :eight 56
+   :end 35
+   :enter 13
+   :equals 187
+   :esc 27
+   :f 70
+   :f1 112
+   :f10 121
+   :f11 122
+   :f12 123
+   :f2 113
+   :f3 114
+   :f4 115
+   :f5 116
+   :f6 117
+   :f7 118
+   :f8 119
+   :f9 120
+   :ff-dash 173
+   :ff-equals 61
+   :ff-semicolon 59
+   :first-media-key 166
+   :five 53
+   :four 52
+   :g 71
+   :h 72
+   :home 36
+   :i 73
+   :insert 45
+   :j 74
+   :k 75
+   :l 76
+   :last-media-key 183
+   :left 37
+   :m 77
+   :mac-enter 3
+   :mac-ff-meta 224
+   :mac-wk-cmd-left 91
+   :mac-wk-cmd-right 93
+   :meta 91
+   :n 78
+   :nine 57
+   :num-center 12
+   :num-division 111
+   :num-eight 104
+   :num-five 101
+   :num-four 100
+   :num-minus 109
+   :num-multiply 106
+   :num-nine 105
+   :num-one 97
+   :num-period 110
+   :num-plus 107
+   :num-seven 103
+   :num-six 102
+   :num-three 99
+   :num-two 98
+   :num-zero 96
+   :numlock 144
+   :o 79
+   :one 49
+   :open-square-bracket 219
+   :p 80
+   :page-down 34
+   :page-up 33
+   :pause 19
+   :period 190
+   :phantom 255
+   :print-screen 44
+   :q 81
+   :question-mark 63
+   :r 82
+   :right 39
+   :s 83
+   :scroll-lock 145
+   :semicolon 186
+   :seven 55
+   :shift 16
+   :single-quote 222
+   :six 54
+   :slash 191
+   :space 32
+   :t 84
+   :tab 9
+   :three 51
+   :tilde 192
+   :two 50
+   :u 85
+   :up 38
+   :v 86
+   :w 87
+   :win-ime 229
+   :win-key 224
+   :win-key-ff-linux 0
+   :win-key-right 92
+   :x 88
+   :y 89
+   :z 90
+   :zero 48}
 
 (def
   ^{:doc "Inversion of keyword->keycode."}
