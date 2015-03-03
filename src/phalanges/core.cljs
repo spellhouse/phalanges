@@ -162,7 +162,7 @@
    :x 88
    :y 89
    :z 90
-   :zero 48}
+   :zero 48})
 
 (def
   ^{:doc "Inversion of keyword->keycode."}
